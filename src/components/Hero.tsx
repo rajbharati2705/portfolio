@@ -76,7 +76,7 @@ const Hero = () => {
               Get In Touch
             </a>
             <a
-              href="/resume.pdf"
+              href="/portfolio/resume.pdf"
               download="Raj_Bharati_Resume.pdf"
               className="inline-flex items-center gap-2 bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors transform hover:scale-105 shadow-lg"
             >
