@@ -60,7 +60,7 @@ npm install --save-dev gh-pages
 
 2. Add to `package.json`:
 ```json
-"homepage": "https://yourusername.github.io/portfolio",
+"homepage": "https://github.com/rajbharati2705/portfolio.git",
 "scripts": {
   "predeploy": "npm run build",
   "deploy": "gh-pages -d dist"
