@@ -41,7 +41,10 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -52,8 +55,19 @@ const Contact = () => {
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
             Get In Touch
           </h2>
-          <p className="text-center text-gray-700 mb-12 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          <p className="text-center text-gray-700 mb-12 max-w-3xl mx-auto text-lg">
+            Open to{" "}
+            <span className="font-semibold text-primary">Backend Engineer</span>
+            ,{" "}
+            <span className="font-semibold text-primary">
+              Platform Engineer
+            </span>
+            , and{" "}
+            <span className="font-semibold text-primary">
+              Distributed Systems
+            </span>{" "}
+            opportunities. Interested in building scalable systems, solving
+            infrastructure challenges, and designing systems that scale.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -61,8 +75,8 @@ const Contact = () => {
               <motion.a
                 key={item.label}
                 href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : '_self'}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                target={item.href.startsWith("http") ? "_blank" : "_self"}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : ""}
                 className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all transform hover:-translate-y-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -94,7 +108,7 @@ const Contact = () => {
               Send Me an Email
             </a>
             <a
-              href="/portfolio/resume.pdf"
+              href="/portfolio/Raj_Bharati_Resume_Enhanced_ATS.pdf"
               download="Raj_Bharati_Resume.pdf"
               className="inline-flex items-center gap-2 bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors transform hover:scale-105 shadow-lg"
             >
@@ -106,7 +120,9 @@ const Contact = () => {
       </div>
 
       <footer className="mt-20 text-center text-gray-600 border-t border-gray-300 pt-8">
-        <p>&copy; {new Date().getFullYear()} Raj Bharati. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Raj Bharati. All rights reserved.
+        </p>
       </footer>
     </section>
   );
