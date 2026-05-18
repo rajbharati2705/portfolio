@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCalendar, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
 
 const Experience = () => {
   const ref = useRef(null);
@@ -9,31 +9,51 @@ const Experience = () => {
 
   const achievements = [
     {
-      category: 'Set Up Infrastructure & Deployment',
+      category: "Distributed Systems",
+      icon: "🔄",
       items: [
-        'Integrated CI/CD pipeline for smooth and faster deployment and hosted the project on AWS EC2 instances.',
-        'Configured Liquibase for automating database migrations through pull requests.',
+        "Designed distributed event propagation using Redis Pub/Sub across ECS containers supporting 1000+ concurrent connections",
+        "Architected WebSocket-based real-time communication for teams and patient messaging",
       ],
     },
     {
-      category: 'Optimized Monitoring & Performance',
+      category: "Performance Optimization",
+      icon: "⚡",
       items: [
-        'Migrated application monitoring from Datadog to Grafana and Prometheus, reducing monitoring costs by 70%.',
-        'Implemented Redis caching for quick access to frequently requested data, improving response time.',
+        "Reduced API latency by 45% and database load by 60% through Redis caching strategy",
+        "Optimized MySQL queries reducing response times by 35% via indexing and query restructuring",
       ],
     },
     {
-      category: 'Enhanced Communication & Collaboration',
+      category: "Cloud & DevOps",
+      icon: "☁️",
       items: [
-        'Integrated WebSocket to enable real-time group chats between care teams and healthcare personnel.',
-        'Integrated VoIP call routing for seamless communication between care teams and patients.',
+        "Designed and automated CI/CD pipelines with GitHub Actions reducing deployment time by 40%",
+        "Engineered zero-downtime database migrations using Liquibase with rollback safety",
       ],
     },
     {
-      category: 'Billing System Improvements',
+      category: "Cost Optimization",
+      icon: "💰",
       items: [
-        'Automated billing processes using SQS and AWS Lambda to perform eligibility checks.',
-        'Developed bulk billing functionality allowing the upload of Excel files to S3, where Lambda checks row constraints and eligibility before generating bills, resulting in a 60% increase in billing efficiency by reducing manual effort and processing time.',
+        "Led migration from Datadog to Grafana/Prometheus stack reducing monitoring costs by 70%",
+        "Improved observability and alerting while cutting operational expenses significantly",
+      ],
+    },
+    {
+      category: "Event-Driven Architecture",
+      icon: "📨",
+      items: [
+        "Built automated billing workflows using AWS SQS + Lambda improving efficiency by 60%",
+        "Designed fault-tolerant message handling with retry queues, DLQ, and circuit breakers",
+      ],
+    },
+    {
+      category: "Quality & Testing",
+      icon: "✅",
+      items: [
+        "Achieved 80% code coverage with Jest reducing production bugs by 50%",
+        "Implemented Docker containerization with comprehensive API documentation",
       ],
     },
   ];
@@ -52,56 +72,108 @@ const Experience = () => {
           </h2>
 
           <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+            {/* Job Title */}
+            <motion.div
+              className="bg-white rounded-lg shadow-lg p-8 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              whileHover={{
+                boxShadow: "0 25px 50px rgba(59, 130, 246, 0.2)",
+                y: -4,
+              }}
+            >
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    FullStack Developer
+                  <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                    Software Engineer
                   </h3>
-                  <p className="text-lg text-primary font-semibold mb-2">
-                    Dsmart - Worked on Oncare360 Healthcare platform
+                  <p className="text-xl text-primary font-semibold mb-3">
+                    DSmart Systems • Oncare360 Healthcare Platform
                   </p>
-                  <div className="flex flex-wrap gap-4 text-gray-600">
-                    <span className="flex items-center gap-2">
+                  <div className="flex flex-wrap gap-6 text-gray-600">
+                    <motion.span
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.1 }}
+                    >
                       <FaCalendar className="text-primary" />
                       Jan 2024 – Present
-                    </span>
-                    <span className="flex items-center gap-2">
+                    </motion.span>
+                    <motion.span
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.15 }}
+                    >
                       <FaMapMarkerAlt className="text-primary" />
                       Hyderabad, India
-                    </span>
+                    </motion.span>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-6">
+              {/* Achievement Cards */}
+              <div className="grid md:grid-cols-2 gap-6">
                 {achievements.map((section, index) => (
                   <motion.div
                     key={section.category}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-5 border-l-4 border-primary cursor-pointer"
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: "0 12px 24px rgba(59, 130, 246, 0.2)",
+                      borderColor: "#3b82f6",
+                    }}
                   >
-                    <h4 className="text-lg font-semibold text-gray-800 mb-3">
+                    <motion.h4
+                      className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2"
+                      whileHover={{ x: 4 }}
+                    >
+                      <motion.span
+                        className="text-2xl"
+                        whileHover={{ rotate: 360, scale: 1.2 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {section.icon}
+                      </motion.span>
                       {section.category}
-                    </h4>
-                    <ul className="list-disc list-inside space-y-2 ml-2">
+                    </motion.h4>
+                    <ul className="space-y-2">
                       {section.items.map((item, idx) => (
-                        <li key={idx} className="text-gray-700 leading-relaxed">
-                          {item}
-                        </li>
+                        <motion.li
+                          key={idx}
+                          className="flex gap-3"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={isInView ? { opacity: 1, x: 0 } : {}}
+                          transition={{
+                            duration: 0.3,
+                            delay: index * 0.1 + idx * 0.05,
+                          }}
+                        >
+                          <motion.div
+                            animate={isInView ? { rotate: [0, 360] } : {}}
+                            transition={{
+                              duration: 0.8,
+                              delay: index * 0.1 + idx * 0.05,
+                            }}
+                          >
+                            <FaCheckCircle
+                              className="text-primary mt-1 flex-shrink-0"
+                              size={16}
+                            />
+                          </motion.div>
+                          <span className="text-sm text-gray-700">{item}</span>
+                        </motion.li>
                       ))}
                     </ul>
                   </motion.div>
                 ))}
               </div>
-
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <p className="text-gray-700">
-                  <span className="font-semibold">Also worked on integrating:</span> Twilio, Streamchat, Auth0
-                </p>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

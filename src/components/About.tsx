@@ -1,10 +1,34 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { FaServer, FaDatabase, FaCloud, FaChartLine } from "react-icons/fa";
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const expertise = [
+    {
+      icon: <FaServer className="text-blue-600" size={24} />,
+      title: "Backend Systems",
+      description: "Node.js, Express, REST APIs, GraphQL, WebSockets",
+    },
+    {
+      icon: <FaChartLine className="text-green-600" size={24} />,
+      title: "Distributed Architecture",
+      description: "Microservices, Event-Driven, Real-Time Systems",
+    },
+    {
+      icon: <FaDatabase className="text-purple-600" size={24} />,
+      title: "Database Optimization",
+      description: "MySQL, PostgreSQL, MongoDB, Redis, Performance Tuning",
+    },
+    {
+      icon: <FaCloud className="text-orange-600" size={24} />,
+      title: "Cloud Infrastructure",
+      description: "AWS, Docker, Kubernetes, CI/CD, DevOps",
+    },
+  ];
 
   return (
     <section id="about" className="py-20 bg-white">
@@ -18,33 +42,58 @@ const About = () => {
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
             About Me
           </h2>
-          <div className="max-w-4xl mx-auto">
-            {/* <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              I'm a passionate <span className="font-semibold text-primary">FullStack Developer</span> with expertise in building scalable web applications 
-              and modern tech solutions. Currently working at Dsmart on the Oncare360 Healthcare platform, 
-              I specialize in creating efficient, user-centric applications.
-            </p>
+
+          <div className="max-w-4xl mx-auto mb-16">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              My experience spans across the full development lifecycle - from setting up CI/CD pipelines 
-              and AWS infrastructure to implementing real-time communication features and optimizing 
-              application performance. I'm particularly skilled in React, Node.js, TypeScript, and cloud technologies.
+              Backend Engineer with 2+ years of experience building scalable
+              distributed systems using Node.js, TypeScript, AWS, Redis, and
+              PostgreSQL. Passionate about event-driven systems, real-time
+              communication, and solving performance bottlenecks.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              I thrive on solving complex problems, optimizing systems for better performance, and 
-              continuously learning new technologies. When I'm not coding, I enjoy contributing to 
-              open-source projects and exploring innovative solutions in the tech space.
-            </p> */}
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    I'm a <span className="font-semibold text-primary">FullStack Developer</span> specializing in building scalable backend systems and cloud-native applications. 
-                    Currently working at Dsmart, I contribute to the Oncare360 healthcare platform, developing services that power remote patient monitoring, device integrations, and healthcare workflows.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    I have experience across the full development lifecycle — from designing APIs and database schemas to deploying services on AWS and building CI/CD pipelines. 
-                    My primary stack includes Node.js, TypeScript, React, MySQL, and AWS, with a focus on performance optimization, scalability, and clean architecture.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    I enjoy solving complex engineering challenges, optimizing systems for reliability and performance, and continuously exploring modern backend architectures and cloud technologies.
-                </p>
+
+            {/* What I Enjoy Building - Personal Touch */}
+            <div className="bg-blue-50 rounded-lg p-6 border-l-4 border-primary">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                What I Enjoy Building
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {[
+                  "Distributed Systems",
+                  "Real-Time Communication",
+                  "Event-Driven Workflows",
+                  "High Performance APIs",
+                  "Database Optimization",
+                  "Scalable Architectures",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 text-gray-700 font-medium"
+                  >
+                    <span className="w-2 h-2 bg-primary rounded-full"></span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* What I Work With */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {expertise.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
+              >
+                <div className="flex justify-center mb-4">{item.icon}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600">{item.description}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

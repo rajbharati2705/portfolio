@@ -2,32 +2,25 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  FaReact,
-  FaAngular,
   FaNodeJs,
   FaDocker,
   FaAws,
   FaGitAlt,
   FaDatabase,
   FaServer,
-  FaShieldAlt,
   FaChartLine,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 import {
   SiTypescript,
-  SiJavascript,
-  SiNextdotjs,
   SiExpress,
   SiMongodb,
   SiMysql,
   SiPostgresql,
   SiPrisma,
   SiGraphql,
-  SiKubernetes,
   SiPrometheus,
   SiGrafana,
-  SiHtml5,
-} from 'react-icons/si';
+} from "react-icons/si";
 
 const Skills = () => {
   const ref = useRef(null);
@@ -35,70 +28,70 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      category: 'Languages',
+      category: "Core Backend",
       skills: [
-        { name: 'TypeScript', icon: <SiTypescript className="text-blue-600" /> },
-        { name: 'JavaScript', icon: <SiJavascript className="text-yellow-500" /> },
+        { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
+        {
+          name: "TypeScript",
+          icon: <SiTypescript className="text-blue-600" />,
+        },
+        { name: "Express.js", icon: <SiExpress className="text-gray-700" /> },
+        { name: "REST APIs", icon: <FaServer className="text-green-500" /> },
+        { name: "WebSockets", icon: <FaDatabase className="text-blue-500" /> },
+        { name: "GraphQL", icon: <SiGraphql className="text-pink-600" /> },
       ],
     },
     {
-      category: 'Frontend',
+      category: "Distributed Systems & Messaging",
       skills: [
-        { name: 'React', icon: <FaReact className="text-cyan-500" /> },
-        { name: 'Angular', icon: <FaAngular className="text-red-600" /> },
-        { name: 'Next.js', icon: <SiNextdotjs className="text-black" /> },
-        { name: 'HTML', icon: <SiHtml5 className="text-orange-600" /> },
-        { name: 'CSS', icon: <FaReact className="text-blue-600" /> },
+        { name: "RabbitMQ", icon: <FaServer className="text-orange-600" /> },
+        { name: "AWS SQS", icon: <FaAws className="text-orange-500" /> },
+        { name: "Redis", icon: <FaDatabase className="text-red-500" /> },
+        {
+          name: "Microservices",
+          icon: <FaServer className="text-indigo-600" />,
+        },
+        {
+          name: "Event-Driven",
+          icon: <FaChartLine className="text-purple-600" />,
+        },
       ],
     },
     {
-      category: 'Backend',
+      category: "Databases",
       skills: [
-        { name: 'Node.js', icon: <FaNodeJs className="text-green-600" /> },
-        { name: 'Express.js', icon: <SiExpress className="text-gray-700" /> },
-        { name: 'REST APIs', icon: <FaServer className="text-green-500" /> },
-        { name: 'GraphQL', icon: <SiGraphql className="text-pink-600" /> },
-        { name: 'WebSockets', icon: <FaDatabase className="text-blue-500" /> },
+        {
+          name: "PostgreSQL",
+          icon: <SiPostgresql className="text-blue-600" />,
+        },
+        { name: "MySQL", icon: <SiMysql className="text-blue-700" /> },
+        { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+        { name: "Prisma ORM", icon: <SiPrisma className="text-gray-700" /> },
       ],
     },
     {
-      category: 'Databases',
+      category: "Cloud & DevOps",
       skills: [
-        { name: 'MySQL', icon: <SiMysql className="text-blue-700" /> },
-        { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-600" /> },
-        { name: 'MongoDB', icon: <SiMongodb className="text-green-600" /> },
-        { name: 'Prisma', icon: <SiPrisma className="text-gray-700" /> },
+        { name: "AWS", icon: <FaAws className="text-orange-500" /> },
+        { name: "Docker", icon: <FaDocker className="text-blue-500" /> },
+        { name: "ECS", icon: <FaServer className="text-orange-500" /> },
+        { name: "Lambda", icon: <FaServer className="text-orange-600" /> },
+        { name: "CI/CD", icon: <FaGitAlt className="text-red-500" /> },
       ],
     },
     {
-      category: 'Authentication & Security',
+      category: "Observability & Monitoring",
       skills: [
-        { name: 'JWT', icon: <FaShieldAlt className="text-purple-600" /> },
-        { name: 'OAuth', icon: <FaShieldAlt className="text-red-500" /> },
-      ],
-    },
-    {
-      category: 'Cloud & Infrastructure',
-      skills: [
-        { name: 'AWS', icon: <FaAws className="text-orange-500" /> },
-        { name: 'Docker', icon: <FaDocker className="text-blue-500" /> },
-        { name: 'Kubernetes', icon: <SiKubernetes className="text-blue-600" /> },
-      ],
-    },
-    {
-      category: 'Observability & Monitoring',
-      skills: [
-        { name: 'CloudWatch', icon: <FaChartLine className="text-orange-500" /> },
-        { name: 'Prometheus', icon: <SiPrometheus className="text-orange-600" /> },
-        { name: 'Grafana', icon: <SiGrafana className="text-orange-500" /> },
-      ],
-    },
-    {
-      category: 'Developer Tools',
-      skills: [
-        { name: 'Git', icon: <FaGitAlt className="text-orange-600" /> },
-        { name: 'GitHub', icon: <FaGitAlt className="text-gray-800" /> },
-        { name: 'Turborepo', icon: <FaNodeJs className="text-red-500" /> },
+        {
+          name: "Prometheus",
+          icon: <SiPrometheus className="text-orange-600" />,
+        },
+        { name: "Grafana", icon: <SiGrafana className="text-orange-500" /> },
+        {
+          name: "CloudWatch",
+          icon: <FaChartLine className="text-orange-500" />,
+        },
+        { name: "Datadog", icon: <FaChartLine className="text-purple-600" /> },
       ],
     },
   ];
@@ -116,29 +109,59 @@ const Skills = () => {
             Technical Skills
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillCategories.map((category, index) => (
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={category.category}
-                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.12 }}
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-4 border-b-2 border-primary pb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <motion.span
+                    className="w-2 h-2 bg-primary rounded-full"
+                    animate={
+                      isInView
+                        ? { scale: [1, 1.5, 1], opacity: [1, 0.6, 1] }
+                        : {}
+                    }
+                    transition={{
+                      duration: 2,
+                      delay: categoryIndex * 0.12,
+                      repeat: Infinity,
+                    }}
+                  />
                   {category.category}
                 </h3>
-                <div className="space-y-3">
-                  {category.skills.map((skill) => (
-                    <div
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
                       key={skill.name}
-                      className="flex items-center gap-3 p-2 rounded hover:bg-gray-50 transition-colors"
+                      className="bg-blue-50 text-gray-900 px-4 py-2 rounded-full font-medium text-sm border border-blue-200 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center gap-2 cursor-pointer"
+                      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                      animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                      transition={{
+                        duration: 0.4,
+                        delay: categoryIndex * 0.12 + skillIndex * 0.05,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        y: -4,
+                        boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="text-2xl">{skill.icon}</div>
-                      <span className="text-gray-700 font-medium">
-                        {skill.name}
-                      </span>
-                    </div>
+                      <motion.span
+                        className="text-lg"
+                        whileHover={{
+                          rotate: 360,
+                          transition: { duration: 0.6 },
+                        }}
+                      >
+                        {skill.icon}
+                      </motion.span>
+                      {skill.name}
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
@@ -146,15 +169,49 @@ const Skills = () => {
           </div>
 
           <motion.div
-            className="mt-12 text-center bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
+            className="mt-16 text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow-lg p-8 max-w-4xl mx-auto border border-blue-200"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Additional AWS Services</h3>
-            <p className="text-gray-700">
-              <span className="font-semibold">AWS:</span> EC2, AWS Lambda, S3, Auto-Scaling Groups, SQS, ECR, ECS, VPC, IAM, CloudFormation, RDS, Secrets Manager
-            </p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Specializations & Core Expertise
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              {[
+                "Distributed Systems",
+                "Event-Driven Architecture",
+                "Real-Time Systems",
+                "Microservices",
+                "System Design",
+                "Performance Optimization",
+                "Database Tuning",
+                "CI/CD Pipelines",
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-4 py-2 bg-white text-primary font-semibold rounded-full border-2 border-primary shadow-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+            <div className="text-left">
+              <p className="text-gray-700 mb-3">
+                <span className="font-semibold text-primary">
+                  AWS Services:
+                </span>{" "}
+                EC2, ECS, Lambda, S3, SQS, ECR, Auto Scaling, CloudWatch, VPC,
+                IAM, RDS, Secrets Manager
+              </p>
+              <p className="text-gray-700">
+                <span className="font-semibold text-primary">
+                  Additional Skills:
+                </span>{" "}
+                REST APIs, GraphQL, Authentication, Authorization, Testing
+                (Jest, Mocha), Git, Docker, Logging & Monitoring
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </div>
